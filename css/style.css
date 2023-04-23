@@ -82,13 +82,20 @@ img{
 /* ADDITIONAL STYLES
 /*******************************************/
 #slider-section {
-  height: 300px;
+  margin-top: 1%;
+  height: 350px;
   display: none;
+  background-color: black;
+  color: white;
   justify-content: center;
   align-items: center;
 }
 
 #showCocktail {
+  display: none;
+}
+
+.drinkId {
   display: none;
 }
 /******************************************
@@ -99,11 +106,11 @@ img{
   height: fit-content;
 }
 
-/*.slide img {
+.slide img {
   width: 100%;  
   width: auto;
-  height: 100px;
-} */
+  height: 200px;
+} 
 
 @media(max-width:1600px) {
   .container{

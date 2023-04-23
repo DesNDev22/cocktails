@@ -8,13 +8,10 @@ function initializeSlider(drinksArray) {
     showCocktail.style.display = "none";
     let drink = '';
     for (let drinks in drinksArray) {
-        console.log(`${drinksArray[drinks].strDrinkThumb} -- ${drinksArray[drinks].strDrink} -- ${drinksArray[drinks].strGlass}`)
         drink += `<div class="slide">
-                <img src="${drinksArray[drinks].strDrinkThumb}/preview" alt="drink image">
-                
+                <img src="${drinksArray[drinks].strDrinkThumb}/preview" alt="drink image" onClick="getCocktailByID(${drinksArray[drinks].idDrink})">
                 <div>
                     <h4>${drinksArray[drinks].strDrink}</h4>
-                    <p>${drinksArray[drinks].strGlass}</p>
                 </div>
             </div>`
     }
@@ -26,6 +23,7 @@ function initializeSlider(drinksArray) {
         gutter: 10,
         slideBy: 1,
         nav: false,
+        loop: false,
         speed: 400,
         controlsContainer: "#controls",
         prevButton: ".previous",
@@ -71,13 +69,23 @@ function getRandomCocktail() {
     });
 }
 
+function getCocktailByID(drinkID) {
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkID}`)
+    .then(res => res.json())
+    .then(data => {
+       displayCocktail(data.drinks)
+})
+    .catch(err => {
+        console.log(`error ${err}`)
+    });
+}
+
 function getCocktailList() {
-    console.log("CLICKED")
     const cocktailName = document.querySelector("#drink").value
-    console.log(cocktailName)
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${cocktailName}`)
     .then(res => res.json())
     .then(data => {
+        console.log(data)
         initializeSlider(data.drinks)
     })
     .catch(err => {
