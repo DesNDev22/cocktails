@@ -2,24 +2,49 @@
 <html lang="en">
 	<head>
     	<meta charset="utf-8">
-    	<meta name="description" content="This is where your description goes">
-    	<meta name="keywords" content="one, two, three">
+    	<meta name="Cocktails" content="Find the recipe for your favorite cocktail">
+    	<meta name="keywords" content="cocktails, alcohol, beverages, beer, liquor">
 
-		<title>Title in the tab</title>
+		<title>Cocktail Finder</title>
 
 		<!-- external CSS link -->
 		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
 	</head>
 	<body>
 
-		<h1>Which Cocktail?</h1> 
-		<input type="text" name="" value="">
-		<button type="button" name="button">Get Cocktail</button>
+		<h1>Cocktail Recepies?</h1> 
+		<p>Find your favorite cocktail receipe. It's easy! Just enter the name of the drink in the box and we will give you a list of recepies for that cocktail.</p>
 
-		<h2>Name</h2>
-		<img src="" alt="">
-		<h3>Instructions</h3>
+		<label for="drink">Cocktail name</label>
+		<input type="text" id="drink" name="drink" value="">
+		<button id="getDrinks" onclick="getCocktailList()">Get List</button>
+
+		<section id="slider-section">
+
+			<div class="container">
+				<div class="subcontainer">
+
+					<div class="slider-wrapper">
+						<h2>Cocktails</h2>
+						<div class="slider"></div>
+						<div id="controls">
+							<button class="previous"><i class="fa-solid fa-angle-left"></i></button>
+							<button class="next"><i class="fa-solid fa-angle-right"></i></button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+		<section id="showCocktail">
+
+		</section>
 
 		<script type="text/javascript" src="js/main.js"></script>
 	</body>
